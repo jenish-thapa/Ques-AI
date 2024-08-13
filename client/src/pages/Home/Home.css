@@ -1,0 +1,40 @@
+.create-project {
+  width: 100%;
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.create-project > h1 {
+  color: #7e22ce;
+  font-size: 3.5rem;
+  margin-top: 0;
+}
+
+.create-project > img {
+  width: 30%;
+}
+
+.create-project > p {
+    width: 60%;
+    font-size: 1.1rem;
+    text-align: center;
+    color: #838383;
+    margin: 2rem 0 3rem 0;
+}
+
+.create-project-title {
+    width: 100%;
+    padding: 0 7rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.create-project-title > h2 {
+    color: #7e22ce;
+    font-size: 2.6rem;
+}
