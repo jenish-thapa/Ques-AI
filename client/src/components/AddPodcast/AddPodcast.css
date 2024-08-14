@@ -1,0 +1,94 @@
+.add-podcast {
+  flex: 1;
+  font-family: "Roboto", sans-serif;
+  padding: 4rem 6rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.breadcrumb {
+  display: flex;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.path {
+  display: flex;
+  color: #999999;
+  font-weight: 700;
+  font-size: 1.6rem;
+}
+
+.path > p {
+  margin-left: 1rem;
+}
+
+.purple {
+  color: #7e22ce;
+}
+
+.bd-icons {
+  font-size: 3.3rem;
+  padding: 0.8rem;
+  margin-left: 1rem;
+  border: 1.5px solid #cccccc;
+  border-radius: 50%;
+  font-weight: 700;
+}
+
+.orange {
+  color: #ff274c;
+}
+
+.podcast-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.podcast-body > h1 {
+  margin: 2rem 0 3rem 0;
+}
+
+.upload-type-cont {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.upload-file {
+  flex: 1;
+  box-shadow: 0px 1.33px 2.67px 0px #0000000f, 0px 5.33px 5.33px 0px #0000000d,
+    0px 10.67px 6.67px 0px #00000008, 0px 18.67px 8px 0px #00000003,
+    0px 29.33px 8px 0px #00000000;
+  border: 1px solid #c7c7c7;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  background-color: #ffffff;
+  font-size: 1.2rem;
+  margin: 1rem 0 3rem 0;
+}
+
+.upload-file > img {
+    width: 8rem;
+}
+
+.select-btn {
+    border: 2px solid #7E22CE;
+    color: #7E22CE;
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    font-size: 1.2rem;
+    background-color: #ffffff;
+}
+
+.grey {
+    color: #00000066;
+    font-size: 0.9rem;
+}
