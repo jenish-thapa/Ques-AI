@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./AddPodcast.css";
 
 import { GrHomeRounded } from "react-icons/gr";
@@ -11,8 +11,23 @@ import UploadIcon from "../../assets/upload.png";
 import cloudUpload from "../../assets/cloudUpload.png";
 
 import { UploadType } from "../UploadType";
+import { UploadDialog } from "../UploadDialog";
 
 const AddPodcast = () => {
+  const [isDialogOpen, setDialogOpen] = useState(false);
+  const [dialogImg, setDialogImg] = useState(null);
+  const [dialogTitle, setDialogTitle] = useState(null);
+
+  const handleClick = (dialogImg, dialogTitle) => {
+    setDialogImg(dialogImg);
+    setDialogTitle(dialogTitle);
+    setDialogOpen(true);
+  };
+
+  const handleCloseDialog = () => {
+    setDialogOpen(false);
+  };
+
   return (
     <div className="add-podcast">
       <div className="breadcrumb">
@@ -35,16 +50,19 @@ const AddPodcast = () => {
             title={"RSS Feed"}
             content={"Lorem ipsum dolor sit. Dolor lorem sit."}
             image={RSS}
+            onClick={() => handleClick(RSS, "Upload from RSS Feed")}
           />
           <UploadType
             title={"Youtube Video"}
             content={"Lorem ipsum dolor sit. Dolor lorem sit."}
             image={YT}
+            onClick={() => handleClick(YT, "Upload from Youtube")}
           />
           <UploadType
             title={"Upload Files"}
             content={"Lorem ipsum dolor sit. Dolor lorem sit."}
             image={UploadIcon}
+            onClick={() => handleClick(UploadIcon, "Upload from Files")}
           />
         </div>
         <div className="upload-file">
@@ -57,6 +75,13 @@ const AddPodcast = () => {
           <button className="select-btn">Select File</button>
         </div>
       </div>
+
+      <UploadDialog
+        img={dialogImg}
+        title={dialogTitle}
+        open={isDialogOpen}
+        onClose={handleCloseDialog}
+      />
     </div>
   );
 };

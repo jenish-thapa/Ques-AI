@@ -1,0 +1,68 @@
+.upload-dialog-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.upload-dialog {
+  background-color: #fff;
+  padding: 2rem 4rem;
+  border-radius: 0.5rem;
+  width: 50%;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.upload-diaog-title {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.upload-diaog-title img {
+  height: 3.5rem;
+  border-radius: 50%;
+}
+
+.upload-diaog-title > div {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.upload-diaog-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.upload-diaog-form > input {
+  margin-bottom: 1rem;
+  height: 2.5rem;
+  border-radius: 0.5rem;
+  border: 2px solid #c7c7c7;
+  padding: 0 1rem;
+}
+
+.close-btn {
+    border: none;
+    font-size: 2rem;
+    padding: 0.7rem;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.upload-dialog-btn {
+  margin-left: auto;
+  background: #211935;
+  color: #fff;
+  padding: 0.7rem 2rem;
+  border-radius: 0.5rem;
+  font-size: 1.2rem;
+}

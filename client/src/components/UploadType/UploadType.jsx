@@ -1,9 +1,9 @@
 import React from "react";
 import "./UploadType.css";
 
-const UploadType = ({title, content, image}) => {
+const UploadType = ({title, content, image, onClick}) => {
   return (
-    <div className="upload-type">
+    <div className="upload-type" onClick={onClick}>
       <div className="ut-l">
         <h2>{title}</h2>
         <p>{content}</p>
