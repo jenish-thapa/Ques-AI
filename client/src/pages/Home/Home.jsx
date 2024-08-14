@@ -7,14 +7,14 @@ import { CreateProjectBtn } from "../../components/CreateProjectBtn";
 import { ProjectCard } from "../../components/ProjectCard";
 
 const Home = () => {
-  // const projects = [
-  //   { name: "Sample Project", episodes: [{}, {}, {}, {}] },
-  //   { name: "SST Project", episodes: [{}, {}, {}] },
-  //   { name: "MERN Stack Project", episodes: [{}, {}, {}, {}, {}] },
-  //   { name: "MERN Stack Project", episodes: [{}, {}, {}, {}, {}] },
-  //   { name: "MERN Stack Project", episodes: [{}, {}, {}, {}, {}] },
-  // ];
-  const projects = [];
+  const projects = [
+    { name: "Sample Project", episodes: [{}, {}, {}, {}] },
+    { name: "SST Project", episodes: [{}, {}, {}] },
+    { name: "MERN Stack Project", episodes: [{}, {}, {}, {}, {}] },
+    { name: "MERN Stack Project", episodes: [{}, {}, {}, {}, {}] },
+    { name: "MERN Stack Project", episodes: [{}, {}, {}, {}, {}] },
+  ];
+  // const projects = [];
   return (
     <div>
       <Header />
