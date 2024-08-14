@@ -1,0 +1,46 @@
+.project-card {
+  min-width: 420px;
+  height: 160px;
+  border-radius: 1rem;
+  border: 1.3px solid #999999;
+  box-sizing: border-box;
+  padding: 0.8rem;
+  display: flex;
+  gap: 1.5rem;
+  font-family: "Roboto", sans-serif;
+}
+
+.pc-left {
+  height: 100%;
+  aspect-ratio: 1/1;
+  background-color: blueviolet;
+  border-radius: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.pc-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.pc-title > h3 {
+  font-size: 1.3rem;
+  color: #7e22ce;
+  margin-bottom: 0;
+}
+
+.pc-title > p {
+  margin-top: 0.4rem;
+  color: #3c3c3c;
+}
+
+.pc-footer {
+  color: #969696;
+}

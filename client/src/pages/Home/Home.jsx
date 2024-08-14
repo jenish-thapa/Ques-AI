@@ -4,10 +4,17 @@ import "./Home.css";
 import Podcast from "../../assets/podcast.png";
 import { Header } from "../../components/Header";
 import { CreateProjectBtn } from "../../components/CreateProjectBtn";
+import { ProjectCard } from "../../components/ProjectCard";
 
 const Home = () => {
-  // const projects = [{ name: "Sample Project", episodes: [] }];
-  const projects = [];
+  const projects = [
+    { name: "Sample Project", episodes: [{}, {}, {}, {}] },
+    { name: "SST Project", episodes: [{}, {}, {}] },
+    { name: "MERN Stack Project", episodes: [{}, {}, {}, {}, {}] },
+    { name: "MERN Stack Project", episodes: [{}, {}, {}, {}, {}] },
+    { name: "MERN Stack Project", episodes: [{}, {}, {}, {}, {}] },
+  ];
+  // const projects = [];
   return (
     <div>
       <Header />
@@ -29,6 +36,17 @@ const Home = () => {
           <div className="create-project-title">
             <h2>Projects</h2>
             <CreateProjectBtn />
+          </div>
+          <div className="projects">
+            {projects.map((project, idx) => {
+              return (
+                <ProjectCard
+                  key={idx}
+                  name={project.name}
+                  numOfEpisodes={project.episodes.length}
+                />
+              );
+            })}
           </div>
         </main>
       )}
