@@ -1,25 +1,49 @@
 const { Router } = require("express");
-const User = require("../models/user");
+const User = require("../models/userModel");
 
 const router = Router();
 
-router.post("/register", async (req, res) => {
+router.post("/signup", async (req, res) => {
   try {
-    const userExists = await User.findOne({ email: req.body.email });
+    let userExists = await User.findOne({ ursname: req.body.ursname });
     if (userExists) {
-      res.send({
+      return res.send({
         success: false,
-        message: "The user already exists!",
+        message: "The usrname already exists!",
       });
     }
-    const newUser = await User(req.body);
+    userExists = await User.findOne({ email: req.body.email });
+    if (userExists) {
+      return res.send({
+        success: false,
+        message: "The email already exists!",
+      });
+    }
+    const newUser = new User(req.body);
     await newUser.save();
     res.send({
       success: true,
       message: "You've successfully signed up, please login now!",
     });
   } catch (error) {
-    console.log(err);
+    console.log(error);
   }
 });
 
+router.post("/signin", async (req, res) => {
+  try {
+    const { email, password } = req.body;
+    const result = await User.matchPassword(email, password);
+
+    if (!result.success) {
+      return res.status(400).json(result);
+    }
+
+    res.status(200).json(result);
+  } catch (error) {
+    console.error("Error in login route:", error);
+    res.status(500).json({ success: false, error: "Server error" });
+  }
+});
+
+module.exports = router;

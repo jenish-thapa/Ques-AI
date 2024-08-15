@@ -82,31 +82,3 @@ form {
   box-sizing: border-box;
   padding: 0 1.5rem;
 }
-
-.form-options {
-  width: 70%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin-bottom: 2.5rem;
-}
-
-.form-options > a {
-    color: #085FCE;
-    text-decoration: none;
-}
-
-.form-options input {
-  border: 1.28px solid #DBDBDB;
-}
-
-.login-button {
-    width: 70%;
-    height: 3rem;
-    background-color: #7E22CE;
-    border: none;
-    color: #ffffff;
-    font-size: 1.2rem;
-    border-radius: 0.5rem;
-    font-weight: 600;
-}

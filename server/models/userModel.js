@@ -17,6 +17,9 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    salt: {
+      type: String,
+    },
   },
   { timestamps: true }
 );
@@ -35,6 +38,29 @@ userSchema.pre("save", function (next) {
   this.password = hashedPassword;
 
   next();
+});
+
+userSchema.static("matchPassword", async function (email, password) {
+  try {
+    const user = await this.findOne({ email: email });
+    if (!user) {
+      return { success: false, error: "Incorrect email" };
+    }
+
+    const { salt, password: hashedPassword } = user;
+    const userProvidedHash = createHmac("sha256", salt)
+      .update(password)
+      .digest("hex");
+
+    if (hashedPassword !== userProvidedHash) {
+      return { success: false, error: "Incorrect password" };
+    }
+
+    return { success: true, message: "User logged in successfully" };
+  } catch (error) {
+    console.error("Error in matchPassword:", error);
+    return { success: false, error: "An error occurred during authentication" };
+  }
 });
 
 const User = mongoose.model("user", userSchema);
