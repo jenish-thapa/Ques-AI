@@ -5,15 +5,15 @@ const router = Router();
 
 router.post("/signup", async (req, res) => {
   try {
-    let userExists = await User.findOne({ ursname: req.body.ursname });
-    if (userExists) {
+    const usernameExists = await User.findOne({ usrname: req.body.usrname });
+    if (usernameExists) {
       return res.send({
         success: false,
         message: "The usrname already exists!",
       });
     }
-    userExists = await User.findOne({ email: req.body.email });
-    if (userExists) {
+    const emailExists = await User.findOne({ email: req.body.email });
+    if (emailExists) {
       return res.send({
         success: false,
         message: "The email already exists!",

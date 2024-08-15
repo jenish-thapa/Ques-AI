@@ -1,14 +1,29 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "./SignUp.css";
 
 import quessAILogo1 from "../../assets/quessAILogo-white-withText.png";
 import quessAILogo2 from "../../assets/quessAILogo-purple.png";
 import { RegisterUser } from "../../calls/user";
+import { AlertBox } from "../../components/AlertBox";
 
 const SignUp = () => {
+  const navigate = useNavigate();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [usrname, setUsrname] = useState("");
+  const [alert, setAlert] = useState(null);
+
+  useEffect(() => {
+    if (alert) {
+      const timer = setTimeout(() => {
+        setAlert(null);
+      }, 1300);
+
+      return () => clearTimeout(timer);
+    }
+  }, [alert]);
 
   const onSubmit = async (event) => {
     event.preventDefault();
@@ -17,15 +32,24 @@ const SignUp = () => {
     try {
       const response = await RegisterUser(values);
       if (response.success) {
-        console.log("Successfully signed up!!!");
-      } else console.log(response.message);
+        setAlert({ message: response.message, type: "success" });
+        setTimeout(() => {
+          navigate("/login");
+        }, 1300);
+      } else {
+        setAlert({ message: response.message, type: "error" });
+      }
     } catch (error) {
-      console.log(error);
+      setAlert({
+        message: error.message || "An error occurred",
+        type: "error",
+      });
     }
   };
 
   return (
     <div className="welcome-screen">
+      {alert && <AlertBox message={alert.message} type={alert.type} />}
       <div className="welcome-message">
         <img src={quessAILogo1} alt="QuessAI Logo" className="welcome-logo" />
         <h1>
