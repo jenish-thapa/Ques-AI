@@ -27,7 +27,7 @@ const ProtectedRoutes = () => {
     };
 
     getUserData();
-  }, [dispatch]);
+  }, []);
 
   if (!authChecked) {
     return null;

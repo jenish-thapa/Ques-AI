@@ -6,13 +6,16 @@ import { Header } from "../../components/Header";
 import { CreateProjectBtn } from "../../components/CreateProjectBtn";
 import { ProjectCard } from "../../components/ProjectCard";
 import { ProjectDialog } from "../../components/ProjectDialog";
+import { useSelector } from "react-redux";
 
 const Home = () => {
   const [isDialogOpen, setDialogOpen] = useState(false);
+  const { project } = useSelector((state) => state.project);
+
+  console.log(project);
+  
 
   const handleClick = () => {
-    console.log("clicked");
-    
     setDialogOpen(true);
   };
 
@@ -20,18 +23,10 @@ const Home = () => {
     setDialogOpen(false);
   };
 
-  // const projects = [
-  //   { name: "Sample Project", episodes: [{}, {}, {}, {}] },
-  //   { name: "SST Project", episodes: [{}, {}, {}] },
-  //   { name: "MERN Stack Project", episodes: [{}, {}, {}, {}, {}] },
-  //   { name: "MERN Stack Project", episodes: [{}, {}, {}, {}, {}] },
-  //   { name: "MERN Stack Project", episodes: [{}, {}, {}, {}, {}] },
-  // ];
-  const projects = [];
   return (
     <div>
       <Header />
-      {projects.length === 0 ? (
+      {project?.length === 0 ? (
         <main className="create-project">
           <h1>Create a New Project</h1>
           <img src={Podcast} alt="" />
@@ -51,12 +46,12 @@ const Home = () => {
             <CreateProjectBtn onClick={() => handleClick()} />
           </div>
           <div className="projects">
-            {projects.map((project, idx) => {
+            {project.map((p, idx) => {
               return (
                 <ProjectCard
                   key={idx}
-                  name={project.name}
-                  numOfEpisodes={project.episodes.length}
+                  name={p.title}
+                  numOfEpisodes={5}
                 />
               );
             })}

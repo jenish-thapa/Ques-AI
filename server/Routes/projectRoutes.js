@@ -3,14 +3,27 @@ const Project = require("../models/projectModel");
 
 const router = Router();
 
-router.post("/project", async (req, res) => {
+router.post("/", async (req, res) => {
   try {
-    const newProject = new Project({ ...req.body, createdBy: req.user._id });
+    const newProject = new Project(req.body);
     await newProject.save();
 
     res.send({
       success: true,
       message: "Project successfully created!",
+    });
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+router.get("/", async (req, res) => {
+  try {
+    const projects = await Project.find({ createdBy: req.query.createdBy });
+
+    res.send({
+      success: true,
+      message: projects,
     });
   } catch (error) {
     console.log(error);
