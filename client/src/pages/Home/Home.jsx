@@ -1,12 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Home.css";
 
 import Podcast from "../../assets/podcast.png";
 import { Header } from "../../components/Header";
 import { CreateProjectBtn } from "../../components/CreateProjectBtn";
 import { ProjectCard } from "../../components/ProjectCard";
+import { ProjectDialog } from "../../components/ProjectDialog";
 
 const Home = () => {
+  const [isDialogOpen, setDialogOpen] = useState(false);
+
+  const handleClick = () => {
+    console.log("clicked");
+    
+    setDialogOpen(true);
+  };
+
+  const handleCloseDialog = () => {
+    setDialogOpen(false);
+  };
+
   // const projects = [
   //   { name: "Sample Project", episodes: [{}, {}, {}, {}] },
   //   { name: "SST Project", episodes: [{}, {}, {}] },
@@ -29,13 +42,13 @@ const Home = () => {
             aliquip ex ea commodo consequat. Duis aute irure dolor in
             reprehenderit in
           </p>
-          <CreateProjectBtn />
+          <CreateProjectBtn onClick={() => handleClick()} />
         </main>
       ) : (
         <main className="create-project">
           <div className="create-project-title">
             <h2>Projects</h2>
-            <CreateProjectBtn />
+            <CreateProjectBtn onClick={() => handleClick()} />
           </div>
           <div className="projects">
             {projects.map((project, idx) => {
@@ -50,6 +63,8 @@ const Home = () => {
           </div>
         </main>
       )}
+
+      <ProjectDialog open={isDialogOpen} onClose={handleCloseDialog} />
     </div>
   );
 };
