@@ -34,15 +34,16 @@ router.post("/signin", async (req, res) => {
   try {
     const { email, password } = req.body;
     const result = await User.matchPassword(email, password);
-
+    console.log(result);
+    
     if (!result.success) {
-      return res.status(400).json(result);
+      return res.send(result);
     }
 
-    res.status(200).json(result);
+    res.send(result);
   } catch (error) {
     console.error("Error in login route:", error);
-    res.status(500).json({ success: false, error: "Server error" });
+    res.send({ success: false, message: "Server error" });
   }
 });
 

@@ -44,7 +44,7 @@ userSchema.static("matchPassword", async function (email, password) {
   try {
     const user = await this.findOne({ email: email });
     if (!user) {
-      return { success: false, error: "Incorrect email" };
+      return { success: false, message: "Incorrect email!" };
     }
 
     const { salt, password: hashedPassword } = user;
@@ -53,13 +53,13 @@ userSchema.static("matchPassword", async function (email, password) {
       .digest("hex");
 
     if (hashedPassword !== userProvidedHash) {
-      return { success: false, error: "Incorrect password" };
+      return { success: false, message: "Incorrect password!" };
     }
 
-    return { success: true, message: "User logged in successfully" };
+    return { success: true, message: "User logged in successfully!" };
   } catch (error) {
     console.error("Error in matchPassword:", error);
-    return { success: false, error: "An error occurred during authentication" };
+    return { success: false, message: "An error occurred during authentication" };
   }
 });
 
