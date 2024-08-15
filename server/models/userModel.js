@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const { createHmac, randomBytes } = require("crypto");
+const { createToken } = require("../services/jwtAuthService");
 
 const userSchema = new mongoose.Schema(
   {
@@ -56,10 +57,14 @@ userSchema.static("matchPassword", async function (email, password) {
       return { success: false, message: "Incorrect password!" };
     }
 
-    return { success: true, message: "User logged in successfully!" };
+    const token = createToken(user);
+    return { success: true, message: token };
   } catch (error) {
     console.error("Error in matchPassword:", error);
-    return { success: false, message: "An error occurred during authentication" };
+    return {
+      success: false,
+      message: "An error occurred during authentication",
+    };
   }
 });
 

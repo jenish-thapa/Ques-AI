@@ -1,5 +1,6 @@
 const { Router } = require("express");
 const User = require("../models/userModel");
+const authMiddleware = require("../middlewares/authMiddleware");
 
 const router = Router();
 
@@ -34,17 +35,27 @@ router.post("/signin", async (req, res) => {
   try {
     const { email, password } = req.body;
     const result = await User.matchPassword(email, password);
-    console.log(result);
-    
+
     if (!result.success) {
       return res.send(result);
     }
 
-    res.send(result);
+    res.cookie("token", result.message, { sameSite: "Lax" });
+    res.send({ success: true, message: "User logged in successfully!" });
   } catch (error) {
     console.error("Error in login route:", error);
     res.send({ success: false, message: "Server error" });
   }
+});
+
+router.get("/get-current-user", authMiddleware, async (req, res) => {
+  const user = await User.findById(req.body.userId).select("-password -salt");
+
+  res.send({
+    success: true,
+    message: "You are authorized to go to the protected route!",
+    data: user,
+  });
 });
 
 module.exports = router;

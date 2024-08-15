@@ -4,7 +4,7 @@ import { axiosInstance } from ".";
 export const RegisterUser = async (value) => {
   try {
     const response = await axiosInstance.post(
-      "http://localhost:8000/api/users/signup",
+      "/api/users/signup",
       value
     );
     return response.data;
@@ -17,7 +17,7 @@ export const RegisterUser = async (value) => {
 export const LogInUser = async (value) => {
   try {
     const response = await axiosInstance.post(
-      "http://localhost:8000/api/users/signin",
+      "/api/users/signin",
       value
     );
     return response.data;

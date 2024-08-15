@@ -86,6 +86,15 @@ const Login = () => {
           </div>
           <input type="submit" value="LogIn" className="login-button" />
         </form>
+        <div className="divider">
+          <div className="stick"></div>
+          <div className="or">or</div>
+          <div className="stick"></div>
+        </div>
+        <p id="login-p">
+          Don't have an account?
+          <button onClick={() => navigate("/signup")}>SignUp</button>
+        </p>
       </div>
     </div>
   );

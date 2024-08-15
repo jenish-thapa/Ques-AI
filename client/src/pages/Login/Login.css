@@ -78,7 +78,7 @@ form {
   width: 100%;
   height: 2.5rem;
   border-radius: 0.5rem;
-  border: 1.28px solid #DBDBDB;
+  border: 1.28px solid #dbdbdb;
   box-sizing: border-box;
   padding: 0 1.5rem;
 }
@@ -92,21 +92,22 @@ form {
 }
 
 .form-options > a {
-    color: #085FCE;
-    text-decoration: none;
+  color: #085fce;
+  text-decoration: none;
 }
 
 .form-options input {
-  border: 1.28px solid #DBDBDB;
+  border: 1.28px solid #dbdbdb;
 }
 
 .login-button {
-    width: 70%;
-    height: 3rem;
-    background-color: #7E22CE;
-    border: none;
-    color: #ffffff;
-    font-size: 1.2rem;
-    border-radius: 0.5rem;
-    font-weight: 600;
+  width: 70%;
+  height: 3rem;
+  background-color: #7e22ce;
+  border: none;
+  color: #ffffff;
+  font-size: 1.2rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
 }

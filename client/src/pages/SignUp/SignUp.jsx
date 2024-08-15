@@ -61,7 +61,7 @@ const SignUp = () => {
       </div>
       <div className="login">
         <img src={quessAILogo2} alt="QuessAI Logo" />
-        <p>
+        <p className="login-title">
           Welcome to <br /> <span className="bold">Ques.AI</span>
         </p>
         <form onSubmit={onSubmit}>
@@ -97,6 +97,15 @@ const SignUp = () => {
           </div>
           <input type="submit" value="SignUp" className="login-button" />
         </form>
+        <div className="divider">
+          <div className="stick"></div>
+          <div className="or">or</div>
+          <div className="stick"></div>
+        </div>
+        <p id="login-p">
+          Already have an account?
+          <button onClick={() => navigate("/login")}>Login</button>
+        </p>
       </div>
     </div>
   );
