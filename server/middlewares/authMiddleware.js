@@ -3,8 +3,8 @@ const jwt = require("jsonwebtoken");
 module.exports = function (req, res, next) {
   try {
     const token = req.headers.authorization.split(" ")[1];
-    const verifiedtoken = jwt.verify(token, process.env.secret_key_jwt);
-    req.body.userId = verifiedtoken.userId;
+    const verifiedtoken = jwt.verify(token, process.env.SECRET);
+    req.body.userId = verifiedtoken._id;
     next();
   } catch (error) {
     console.log(error);
