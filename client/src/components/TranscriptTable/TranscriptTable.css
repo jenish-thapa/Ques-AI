@@ -18,6 +18,29 @@
   width: 100%;
   text-align: center;
   border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.transcript-table thead {
+  display: table-header-group;
+}
+
+.transcript-table tbody {
+  display: block;
+  width: 100%;
+  height: 30vh;
+  overflow-y: auto;
+}
+
+.transcript-table tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+
+.transcript-table tbody,
+.transcript-table thead {
+  display: block;
 }
 
 .head-l {
@@ -35,7 +58,7 @@ th {
 }
 
 td {
-  padding: 1.2rem 0.7rem;
+  padding: 1rem 0.7rem;
   border-bottom: 2px solid #ededed;
   font-weight: 500;
   color: #646464;
@@ -46,4 +69,53 @@ td {
   border: none;
   padding: 0.2rem 1rem;
   border-radius: 0.6rem;
+  color: #7e23cd;
+  font-weight: 600;
+}
+
+.td-view,
+.td-delete {
+  background-color: #ffffff;
+  border: 1.5px solid #c7c7c7;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.td-view {
+  border-right: none;
+  border-radius: 0.5rem 0 0 0.5rem;
+}
+
+.td-delete {
+  border-radius: 0 0.5rem 0.5rem 0;
+  color: #ff274c;
+}
+
+.share-icon {
+  font-size: 1.2rem;
+  margin-left: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+td > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.t-body {
+  width: 100%;
+  height: 30vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.transcript-table-row{
+  border-radius: 0.5rem;
+}
+
+.transcript-table-row:hover {
+  background-color: #F8F3FF;
 }

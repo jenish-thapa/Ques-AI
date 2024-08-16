@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./AddPodcast.css";
 
 import { GrHomeRounded } from "react-icons/gr";
@@ -15,13 +15,33 @@ import { UploadType } from "../UploadType";
 import { UploadDialog } from "../UploadDialog";
 import { useNavigate } from "react-router-dom";
 import { TranscriptTable } from "../TranscriptTable";
+import { useDispatch, useSelector } from "react-redux";
+import { GetTranscript } from "../../calls/transcript";
+import { setTranscript } from "../../redux/transcriptSlice";
 
 const AddPodcast = () => {
   const navigator = useNavigate();
+  const dispatch = useDispatch();
+
+  const { currentProject } = useSelector((state) => state.currentProject);
+  const { transcript } = useSelector((state) => state.transcript);
 
   const [isDialogOpen, setDialogOpen] = useState(false);
   const [dialogImg, setDialogImg] = useState(null);
   const [dialogTitle, setDialogTitle] = useState(null);
+
+  const loadTranscript = async () => {
+    if (currentProject) {
+      const transcripts = await GetTranscript(currentProject._id);
+      dispatch(setTranscript(transcripts.message));
+    }
+  };
+
+  useEffect(() => {
+    if (currentProject) {
+      loadTranscript();
+    }
+  }, []);
 
   const handleClick = (dialogImg, dialogTitle) => {
     setDialogImg(dialogImg);
@@ -34,8 +54,11 @@ const AddPodcast = () => {
   };
 
   const back = () => {
+    dispatch(setTranscript(null));
     navigator("/home");
   };
+
+  if (!transcript) return null;
 
   return (
     <div className="add-podcast">
@@ -43,7 +66,7 @@ const AddPodcast = () => {
         <div className="path">
           <GrHomeRounded />
           <p>
-            Home Page / Sample Project /{" "}
+            Home Page / {currentProject.name} /{" "}
             <span className="purple">Add your podcast</span>
           </p>
         </div>
@@ -77,16 +100,19 @@ const AddPodcast = () => {
             onClick={() => handleClick(UploadIcon, "Upload from Files")}
           />
         </div>
-        {/* <div className="upload-file">
-          <img src={cloudUpload} alt="cloudUpload" />
-          <p>
-            Select a file or drag and drop here (Podcast Media or Transcription
-            Text)
-          </p>
-          <p className="grey">MP4, MOV, MP3, WAV, PDF, DOCX or TXT file</p>
-          <button className="select-btn">Select File</button>
-        </div> */}
-        <TranscriptTable />
+        {transcript.length == 0 ? (
+          <div className="upload-file">
+            <img src={cloudUpload} alt="cloudUpload" />
+            <p>
+              Select a file or drag and drop here (Podcast Media or
+              Transcription Text)
+            </p>
+            <p className="grey">MP4, MOV, MP3, WAV, PDF, DOCX or TXT file</p>
+            <button className="select-btn">Select File</button>
+          </div>
+        ) : (
+          <TranscriptTable transcripts={transcript} />
+        )}
       </div>
 
       <UploadDialog

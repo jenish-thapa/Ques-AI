@@ -29,4 +29,19 @@ router.post("/", async (req, res) => {
   }
 });
 
+router.get("/", async (req, res) => {
+  try {
+    const transcripts = await Transcript.find({
+      projectId: req.query.projectId,
+    });
+
+    res.send({
+      success: true,
+      message: transcripts,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+})
+
 module.exports = router;

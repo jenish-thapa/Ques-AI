@@ -1,15 +1,30 @@
-import React from 'react'
-import "./Upload.css"
-import { UploadNav } from '../../components/UploadNav'
-import { AddPodcast } from '../../components/AddPodcast'
+import React, { useEffect } from "react";
+import "./Upload.css";
+import { UploadNav } from "../../components/UploadNav";
+import { AddPodcast } from "../../components/AddPodcast";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const Upload = () => {
-  return (
-    <div className='upload'>
-        <UploadNav />
-        <AddPodcast />
-    </div>
-  )
-}
+  const navigator = useNavigate();
+  const { currentProject } = useSelector((state) => state.currentProject);
 
-export default Upload
+  useEffect(() => {
+    if (!currentProject) {
+      navigator("/home");
+    }
+  }, [currentProject, navigator]);
+
+  if (!currentProject) {
+    return null;
+  }
+
+  return (
+    <div className="upload">
+      <UploadNav />
+      <AddPodcast />
+    </div>
+  );
+};
+
+export default Upload;

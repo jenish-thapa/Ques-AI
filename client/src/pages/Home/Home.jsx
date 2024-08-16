@@ -12,9 +12,6 @@ const Home = () => {
   const [isDialogOpen, setDialogOpen] = useState(false);
   const { project } = useSelector((state) => state.project);
 
-  console.log(project);
-  
-
   const handleClick = () => {
     setDialogOpen(true);
   };
@@ -50,6 +47,7 @@ const Home = () => {
               return (
                 <ProjectCard
                   key={idx}
+                  _id={p._id}
                   name={p.title}
                   numOfEpisodes={p.noOfEpisodes}
                 />
