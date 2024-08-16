@@ -4,6 +4,7 @@ import "./AddPodcast.css";
 import { GrHomeRounded } from "react-icons/gr";
 import { GoBell } from "react-icons/go";
 import { RxExit } from "react-icons/rx";
+import { FaArrowLeft } from "react-icons/fa6";
 
 import RSS from "../../assets/rss.png";
 import YT from "../../assets/yt.png";
@@ -12,8 +13,12 @@ import cloudUpload from "../../assets/cloudUpload.png";
 
 import { UploadType } from "../UploadType";
 import { UploadDialog } from "../UploadDialog";
+import { useNavigate } from "react-router-dom";
+import { TranscriptTable } from "../TranscriptTable";
 
 const AddPodcast = () => {
+  const navigator = useNavigate();
+
   const [isDialogOpen, setDialogOpen] = useState(false);
   const [dialogImg, setDialogImg] = useState(null);
   const [dialogTitle, setDialogTitle] = useState(null);
@@ -26,6 +31,10 @@ const AddPodcast = () => {
 
   const handleCloseDialog = () => {
     setDialogOpen(false);
+  };
+
+  const back = () => {
+    navigator("/home");
   };
 
   return (
@@ -44,7 +53,10 @@ const AddPodcast = () => {
         </div>
       </div>
       <div className="podcast-body">
-        <h1>Add Podcast</h1>
+        <h1 className="acc-h1">
+          <FaArrowLeft className="back" onClick={back} />
+          Add Podcast
+        </h1>
         <div className="upload-type-cont">
           <UploadType
             title={"RSS Feed"}
@@ -65,7 +77,7 @@ const AddPodcast = () => {
             onClick={() => handleClick(UploadIcon, "Upload from Files")}
           />
         </div>
-        <div className="upload-file">
+        {/* <div className="upload-file">
           <img src={cloudUpload} alt="cloudUpload" />
           <p>
             Select a file or drag and drop here (Podcast Media or Transcription
@@ -73,7 +85,8 @@ const AddPodcast = () => {
           </p>
           <p className="grey">MP4, MOV, MP3, WAV, PDF, DOCX or TXT file</p>
           <button className="select-btn">Select File</button>
-        </div>
+        </div> */}
+        <TranscriptTable />
       </div>
 
       <UploadDialog

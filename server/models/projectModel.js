@@ -6,6 +6,10 @@ const projectSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    noOfEpisodes: {
+      type: Number,
+      default: 0,
+    },
     createdBy: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "user",

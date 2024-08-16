@@ -6,6 +6,7 @@ import { Login } from "./pages/Login";
 import { Home } from "./pages/Home";
 import { Upload } from "./pages/Upload";
 import { SignUp } from "./pages/SignUp";
+import { Account } from "./pages/Account";
 import ProtectedRoutes from "./utils/ProtectedRoutes";
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
           <Route element={<ProtectedRoutes />}>
             <Route path="/home" element={<Home />} />
             <Route path="/upload" element={<Upload />} />
+            <Route path="/account" element={<Account />} />
           </Route>
         </Routes>
       </BrowserRouter>

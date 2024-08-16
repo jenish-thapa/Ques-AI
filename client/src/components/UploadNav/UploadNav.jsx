@@ -2,13 +2,21 @@ import React from "react";
 import "./UploadNav.css";
 
 import QuessAILogo from "../../assets/quessAILogo-purple-withText.png";
-import profilePic from "../../assets/profile.png"
+import profilePic from "../../assets/profile.png";
 import { FaPlus } from "react-icons/fa6";
 import { GoPencil, GoCopy } from "react-icons/go";
 import { TbDiamond } from "react-icons/tb";
 import { IoSettingsOutline } from "react-icons/io5";
+import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const UploadNav = () => {
+  const navigator = useNavigate();
+  const { user } = useSelector((state) => state.user);
+
+  const toSettings = () => {
+    navigator("/account");
+  };
   return (
     <div className="upload-nav">
       <div className="nav-top">
@@ -33,11 +41,11 @@ const UploadNav = () => {
           <IoSettingsOutline /> Help
         </div>
       </div>
-      <div className="nav-user">
+      <div className="nav-user" onClick={toSettings}>
         <img src={profilePic} alt="Profile Pic" />
         <div>
-            <h3>Username</h3>
-            <p>username@gmail.com</p>
+          <h3>{user.usrname}</h3>
+          <p>{user.email}</p>
         </div>
       </div>
     </div>

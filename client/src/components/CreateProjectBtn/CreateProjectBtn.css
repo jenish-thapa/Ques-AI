@@ -5,10 +5,11 @@
     display: flex;
     align-items: center;
     gap: 1rem;
-    font-size: 1.45rem;
+    font-size: 1.25rem;
     font-weight: 600;
     padding: 1.8rem 1.2rem;
     border-radius: 0.5rem;
+    cursor: pointer;
 }
 
 #plus {

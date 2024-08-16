@@ -51,7 +51,7 @@ const Home = () => {
                 <ProjectCard
                   key={idx}
                   name={p.title}
-                  numOfEpisodes={5}
+                  numOfEpisodes={p.noOfEpisodes}
                 />
               );
             })}
