@@ -7,7 +7,7 @@ import { RxExit } from "react-icons/rx";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
-const BreadCrumb = ({ nav }) => {
+const BreadCrumb = ({ normal, nav }) => {
   const navigator = useNavigate();
   const { currentProject } = useSelector((state) => state.currentProject);
 
@@ -23,6 +23,7 @@ const BreadCrumb = ({ nav }) => {
         <GrHomeRounded />
         <p>
           Home Page / {currentProject.name} /{" "}
+          {normal ? `${normal} / ` : ""}
           <span className="purple">{nav}</span>
         </p>
       </div>

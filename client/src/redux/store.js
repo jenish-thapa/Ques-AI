@@ -3,6 +3,7 @@ import userReducer from "./userSlice";
 import projectReducer from "./projectSlice";
 import currentProjectReducer from "./currentProjectSlice";
 import transcriptReducer from "./transcriptSlice";
+import currentTranscriptReducer from "./currentTranscriptSlice";
 
 const store = configureStore({
   reducer: {
@@ -10,6 +11,7 @@ const store = configureStore({
     project: projectReducer,
     currentProject: currentProjectReducer,
     transcript: transcriptReducer,
+    currentTranscript: currentTranscriptReducer,
   },
 });
 

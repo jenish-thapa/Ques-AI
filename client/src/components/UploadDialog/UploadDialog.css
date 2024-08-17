@@ -50,12 +50,21 @@
   padding: 0 1rem;
 }
 
+.upload-diaog-form > textarea {
+  margin-bottom: 1rem;
+  height: 3rem;
+  border-radius: 0.5rem;
+  border: 2px solid #c7c7c7;
+  padding: 0.5rem 1rem;
+  resize: none;
+}
+
 .close-btn {
-    border: none;
-    font-size: 2rem;
-    padding: 0.7rem;
-    background-color: #fff;
-    cursor: pointer;
+  border: none;
+  font-size: 2rem;
+  padding: 0.7rem;
+  background-color: #fff;
+  cursor: pointer;
 }
 
 .upload-dialog-btn {

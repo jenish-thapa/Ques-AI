@@ -77,7 +77,7 @@ const UploadDialog = ({ img, title, open, onClose }) => {
             required
           />
           <label>Link</label>
-          <input
+          <textarea
             type="text"
             value={link}
             onChange={(e) => setLink(e.target.value)}

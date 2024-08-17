@@ -8,6 +8,7 @@ import { Upload } from "./pages/Upload";
 import { SignUp } from "./pages/SignUp";
 import { Account } from "./pages/Account";
 import ProtectedRoutes from "./utils/ProtectedRoutes";
+import { Transcript } from "./pages/Transcript";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Route path="/home" element={<Home />} />
             <Route path="/upload" element={<Upload />} />
             <Route path="/account" element={<Account />} />
+            <Route path="/transcript" element={<Transcript />} />
           </Route>
         </Routes>
       </BrowserRouter>

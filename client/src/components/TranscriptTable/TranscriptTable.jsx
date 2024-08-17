@@ -2,8 +2,25 @@ import React from "react";
 import "./TranscriptTable.css";
 
 import { IoMdShareAlt } from "react-icons/io";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setCurrentTranscript } from "../../redux/currentTranscriptSlice";
 
 const TranscriptTable = ({ transcripts }) => {
+  const navigator = useNavigate();
+  const dispatch = useDispatch();
+
+  const toTranscript = (t) => {
+    const value = {
+      _id: t._id,
+      name: t.name,
+      projectId: t.projectId,
+      content: t.content,
+    };
+    dispatch(setCurrentTranscript(value));
+    navigator("/transcript");
+  };
+
   const dateFormatter = (timestamp) => {
     const date = new Date(timestamp);
     const options = {
@@ -45,7 +62,12 @@ const TranscriptTable = ({ transcripts }) => {
                 </td>
                 <td>
                   <div>
-                    <button className="td-view">View</button>
+                    <button
+                      className="td-view"
+                      onClick={() => toTranscript(transcript)}
+                    >
+                      View
+                    </button>
                     <button className="td-delete">Delete</button>
                     <IoMdShareAlt className="share-icon" />
                   </div>

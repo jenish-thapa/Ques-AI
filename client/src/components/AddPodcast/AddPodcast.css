@@ -12,10 +12,6 @@
   flex-direction: column;
 }
 
-.podcast-body > h1 {
-  margin: 2rem 0 3rem 0;
-}
-
 .upload-type-cont {
   display: flex;
   justify-content: space-between;

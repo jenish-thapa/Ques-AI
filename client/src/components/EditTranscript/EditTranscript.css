@@ -1,0 +1,68 @@
+.edit-transcript {
+  flex: 1;
+  font-family: "Roboto", sans-serif;
+  padding: 4rem 6rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.trans-cont {
+  display: flex;
+  flex-direction: column;
+}
+
+.trans-body {
+  border: 0.7px solid #c7c7c7;
+  box-shadow: 0px 1.31px 2.63px 0px #0000000f, 0px 5.25px 5.25px 0px #0000000d,
+    0px 10.5px 6.56px 0px #00000008, 0px 18.38px 7.88px 0px #00000003,
+    0px 28.88px 7.88px 0px #00000000;
+  padding: 1.5rem 3rem;
+  border-radius: 0.5rem;
+  height: 60vh;
+}
+
+.trans-body > h2 {
+  color: #7e22ce;
+  height: 10%;
+  font-size: 1.3rem;
+}
+
+.trans-body > pre {
+  height: 90%;
+  padding: 1rem 0rem;
+  color: #63635e;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  font-family: "Roboto", sans-serif;
+  line-height: 2rem;
+  overflow-y: auto;
+}
+
+.trans-h1 {
+  display: flex;
+  flex: 1;
+  gap: 1rem;
+  align-items: center;
+}
+
+.trans-utils {
+  display: flex;
+  align-items: center;
+  margin: 2rem 0 3rem 0;
+}
+
+.trans-btn {
+  padding: 0.4rem 2.5rem;
+  background: #211935;
+  color: #ffffff;
+  font-size: 1rem;
+  border-radius: 0.3rem;
+  margin-left: 1rem;
+  cursor: pointer;
+}
+ 
+.delete {
+  border: 1px solid #E01919;
+  background-color: transparent;
+  color: #E01919;
+}
