@@ -6,42 +6,6 @@
   flex-direction: column;
 }
 
-.breadcrumb {
-  display: flex;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.path {
-  display: flex;
-  color: #999999;
-  font-weight: 700;
-  font-size: 1.6rem;
-}
-
-.path > p {
-  margin-left: 1rem;
-}
-
-.purple {
-  color: #7e22ce;
-}
-
-.bd-icons {
-  font-size: 3.3rem;
-  padding: 0.8rem;
-  margin-left: 1rem;
-  border: 1.5px solid #cccccc;
-  border-radius: 50%;
-  font-weight: 700;
-}
-
-.orange {
-  color: #ff274c;
-}
-
 .podcast-body {
   flex: 1;
   display: flex;

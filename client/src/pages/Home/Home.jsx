@@ -11,7 +11,7 @@ import { useSelector } from "react-redux";
 const Home = () => {
   const [isDialogOpen, setDialogOpen] = useState(false);
   const { project } = useSelector((state) => state.project);
-
+  
   const handleClick = () => {
     setDialogOpen(true);
   };
@@ -50,6 +50,7 @@ const Home = () => {
                   _id={p._id}
                   name={p.title}
                   numOfEpisodes={p.noOfEpisodes}
+                  updatedAt={p.updatedAt}
                 />
               );
             })}

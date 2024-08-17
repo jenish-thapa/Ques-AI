@@ -78,6 +78,11 @@
   animation: swell 3s linear infinite;
 }
 
+.save {
+  animation: none;
+  margin-top: 1.1rem;
+}
+
 @keyframes swell {
   0% {
     scale: 1;

@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./AddPodcast.css";
 
-import { GrHomeRounded } from "react-icons/gr";
-import { GoBell } from "react-icons/go";
-import { RxExit } from "react-icons/rx";
 import { FaArrowLeft } from "react-icons/fa6";
 
 import RSS from "../../assets/rss.png";
@@ -18,6 +15,7 @@ import { TranscriptTable } from "../TranscriptTable";
 import { useDispatch, useSelector } from "react-redux";
 import { GetTranscript } from "../../calls/transcript";
 import { setTranscript } from "../../redux/transcriptSlice";
+import { BreadCrumb } from "../BreadCrumb";
 
 const AddPodcast = () => {
   const navigator = useNavigate();
@@ -62,19 +60,7 @@ const AddPodcast = () => {
 
   return (
     <div className="add-podcast">
-      <div className="breadcrumb">
-        <div className="path">
-          <GrHomeRounded />
-          <p>
-            Home Page / {currentProject.name} /{" "}
-            <span className="purple">Add your podcast</span>
-          </p>
-        </div>
-        <div>
-          <GoBell className="bd-icons" />
-          <RxExit className="bd-icons orange" />
-        </div>
-      </div>
+      <BreadCrumb nav={"Add your Podcast(s)"} />
       <div className="podcast-body">
         <h1 className="acc-h1">
           <FaArrowLeft className="back" onClick={back} />

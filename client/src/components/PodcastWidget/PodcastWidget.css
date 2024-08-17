@@ -1,0 +1,7 @@
+.podcast-widget {
+  flex: 1;
+  font-family: "Roboto", sans-serif;
+  padding: 4rem 6rem;
+  display: flex;
+  flex-direction: column;
+}
