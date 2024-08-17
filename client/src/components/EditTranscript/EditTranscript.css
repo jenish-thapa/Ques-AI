@@ -19,6 +19,7 @@
   padding: 1.5rem 3rem;
   border-radius: 0.5rem;
   height: 60vh;
+  background-color: #ffffff;
 }
 
 .trans-body > h2 {
@@ -27,7 +28,7 @@
   font-size: 1.3rem;
 }
 
-.trans-body > pre {
+.trans-edit {
   height: 90%;
   padding: 1rem 0rem;
   color: #63635e;
@@ -36,6 +37,18 @@
   font-family: "Roboto", sans-serif;
   line-height: 2rem;
   overflow-y: auto;
+}
+
+.trans-body > textarea {
+  resize: none;
+  width: 100%;
+  resize: none;
+  font-size: 1rem;
+  border: none;
+}
+
+.trans-body > textarea:focus {
+  outline: none;
 }
 
 .trans-h1 {
@@ -60,9 +73,9 @@
   margin-left: 1rem;
   cursor: pointer;
 }
- 
+
 .delete {
-  border: 1px solid #E01919;
+  border: 1px solid #e01919;
   background-color: transparent;
-  color: #E01919;
+  color: #e01919;
 }

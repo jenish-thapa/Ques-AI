@@ -55,8 +55,10 @@
   height: 3rem;
   border-radius: 0.5rem;
   border: 2px solid #c7c7c7;
-  padding: 0.5rem 1rem;
+  padding: 0.8rem 1rem;
   resize: none;
+  font-family: "Roboto", sans-serif;
+  font-size: 0.9rem;
 }
 
 .close-btn {

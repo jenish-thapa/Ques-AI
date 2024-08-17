@@ -63,6 +63,34 @@ router.delete("/:id", async (req, res) => {
   }
 });
 
+router.patch("/:id", async (req, res) => {
+  try {
+    const transcriptId = req.params.id;
+
+    const updatedTranscript = await Transcript.findByIdAndUpdate(
+      transcriptId,
+      { $set: { content: req.body.content } },
+      { new: true }
+    );
+
+    if (!updatedTranscript) {
+      return res
+        .status(404)
+        .send({ success: false, message: "Transcript not found!" });
+    }
+
+    res.send({
+      success: true,
+      message: "Transcript content successfully updated!",
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send({
+      success: false,
+      message: "An error occurred while updating the transcript content.",
+    });
+  }
+});
 
 router.get("/", async (req, res) => {
   try {
@@ -77,6 +105,6 @@ router.get("/", async (req, res) => {
   } catch (error) {
     console.log(error);
   }
-})
+});
 
 module.exports = router;

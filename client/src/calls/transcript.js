@@ -36,3 +36,22 @@ export const DeleteTranscript = async (transcriptId) => {
     };
   }
 };
+
+// patch transcript
+export const PatchTranscript = async (transcriptId, newContent) => {
+  try {
+    const response = await axiosInstance.patch(
+      `/api/transcripts/${transcriptId}`,
+      {
+        content: newContent,
+      }
+    );
+
+    return response.data;
+  } catch (error) {
+    return {
+      success: false,
+      message: "An error occurred while updating the transcript.",
+    };
+  }
+};
