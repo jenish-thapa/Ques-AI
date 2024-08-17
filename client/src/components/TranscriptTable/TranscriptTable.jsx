@@ -3,12 +3,15 @@ import "./TranscriptTable.css";
 
 import { IoMdShareAlt } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setCurrentTranscript } from "../../redux/currentTranscriptSlice";
+import { DeleteTranscript, GetTranscript } from "../../calls/transcript";
+import { setTranscript } from "../../redux/transcriptSlice";
 
 const TranscriptTable = ({ transcripts }) => {
   const navigator = useNavigate();
   const dispatch = useDispatch();
+  const { currentProject } = useSelector((state) => state.currentProject);
 
   const toTranscript = (t) => {
     const value = {
@@ -19,6 +22,16 @@ const TranscriptTable = ({ transcripts }) => {
     };
     dispatch(setCurrentTranscript(value));
     navigator("/transcript");
+  };
+
+  const deleteTranscript = async (id) => {
+    await DeleteTranscript(id);
+    (async function () {
+      if (currentProject) {
+        const transcripts = await GetTranscript(currentProject._id);
+        dispatch(setTranscript(transcripts.message));
+      }
+    })();
   };
 
   const dateFormatter = (timestamp) => {
@@ -68,7 +81,12 @@ const TranscriptTable = ({ transcripts }) => {
                     >
                       View
                     </button>
-                    <button className="td-delete">Delete</button>
+                    <button
+                      className="td-delete"
+                      onClick={() => deleteTranscript(transcript._id)}
+                    >
+                      Delete
+                    </button>
                     <IoMdShareAlt className="share-icon" />
                   </div>
                 </td>

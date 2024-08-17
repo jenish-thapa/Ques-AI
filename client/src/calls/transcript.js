@@ -21,3 +21,18 @@ export const AddTranscript = async (value) => {
     return { success: false, message: "An error occurred" };
   }
 };
+
+// delete transcript
+export const DeleteTranscript = async (transcriptId) => {
+  try {
+    const response = await axiosInstance.delete(
+      `/api/transcripts/${transcriptId}`
+    );
+    return response.data;
+  } catch (error) {
+    return {
+      success: false,
+      message: "An error occurred while deleting the transcript.",
+    };
+  }
+};
