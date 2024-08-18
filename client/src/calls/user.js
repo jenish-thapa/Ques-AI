@@ -23,7 +23,7 @@ export const LogInUser = async (value) => {
     const response = await axiosInstance.post("/api/users/signin", value);
     console.log(response.data);
     if (response.data.success)
-      Cookies.set("token", response.data.token, { expires: 1 });
+      Cookies.set("token", response.data.token, { expires: 1, secure: true });
     return response.data;
   } catch (error) {
     return { success: false, message: "An error occurred" };
