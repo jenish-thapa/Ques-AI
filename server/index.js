@@ -12,7 +12,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: "https://ques-8i1v59zbp-jenishs-projects-2d020864.vercel.app/",
+    origin: "https://ques-8i1v59zbp-jenishs-projects-2d020864.vercel.app",
     credentials: true,
   })
 );
