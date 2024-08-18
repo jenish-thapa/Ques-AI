@@ -18,7 +18,7 @@ This project is a web-based application that allows users to manage projects and
 - Backend: Express.js, Node.js
 - Database: MongoDB
 - Authentication: JWT (JSON Web Token)
-- Deployment: Vercel for the frontend, (mention any service used for backend deployment)
+- Deployment: Vercel for the frontend, Render for the backend
 
 ## Project Setup
 
@@ -30,32 +30,45 @@ git clone https://github.com/jenish-thapa/Ques-AI.git
 
 ### Backend Setup
 
-2. **Install Dependencies**
+1. **Set Up Environment Variables**
 
    ```bash
    cd server
+   cp .env.example .env
+   ```
+
+Default url has already been setup.
+
+2. **Install Dependencies and run the project**
+
+   ```bash
    npm install
    npm run dev
    ```
 
-3. **Set Up Environment Variables**
-
-   ```bash
-   cp .env.example .env
-   ```
+   Open up a new terminal, keeping the server running in the previous terminal.
 
 ### Frontend Setup
 
-2. **Install Dependencies**
+3. **Set Up Environment Variables**
 
    ```bash
    cd client
+   cp .env.example .env
+   ```
+
+Configure your MongoDB database url and also set a secret in the .env file.
+
+4. **Install Dependencies and run the project**
+
+   ```bash
    npm install
    npm run dev
    ```
 
-3. **Set Up Environment Variables**
-
-   ```bash
-   cp .env.example .env
-   ```
+## Key Features
+- Authentication using JWT token
+- State management using Redux
+- Responsive across various desktops
+- Custom components (e.g. toast, loader, dialog boxes, etc.). No external UI library used.
+- RESTful APIS
