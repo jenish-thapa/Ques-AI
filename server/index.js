@@ -12,6 +12,7 @@ const app = express();
 
 const allowedOrigins = [
   "https://ques-8i1v59zbp-jenishs-projects-2d020864.vercel.app",
+  // "http://localhost:5173",
 ];
 
 app.use(
