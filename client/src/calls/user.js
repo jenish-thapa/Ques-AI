@@ -2,7 +2,7 @@ import { axiosInstance } from ".";
 // import { cookieParser } from "cookie-parser";
 
 function getToken() {
-  console.log(document.cookie);
+  console.log(document);
   
   if (document.cookie) {
     const cookies = document.cookie.split("; ");

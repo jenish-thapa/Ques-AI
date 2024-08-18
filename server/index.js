@@ -10,12 +10,23 @@ const transcriptRoutes = require("./Routes/transcriptRoutes");
 
 const app = express();
 
+const allowedOrigins = [
+  "https://ques-8i1v59zbp-jenishs-projects-2d020864.vercel.app",
+];
+
 app.use(
   cors({
-    origin: "https://ques-8i1v59zbp-jenishs-projects-2d020864.vercel.app",
+    origin: function (origin, callback) {
+      if (allowedOrigins.includes(origin) || !origin) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
     credentials: true,
   })
 );
+
 app.use(express.json());
 
 app.use(cookieParser());
