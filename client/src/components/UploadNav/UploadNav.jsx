@@ -19,7 +19,6 @@ const UploadNav = ({ activeLink, setActiveLink }) => {
 
   const handleNavClick = (link) => {
     setActiveLink(link);
-    console.log(activeLink);
   };
 
   const toggleCollapse = () => {

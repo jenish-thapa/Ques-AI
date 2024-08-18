@@ -25,7 +25,6 @@ const ProjectDialog = ({ open, onClose }) => {
 
   useEffect(() => {
     if (user) {
-      console.log("mounting");
 
       addProjects();
     }
@@ -35,7 +34,6 @@ const ProjectDialog = ({ open, onClose }) => {
     const values = { title, createdBy: user._id };
     try {
       const response = await AddProject(values);
-      console.log(response);
     } catch (error) {
       console.log(error);
     }

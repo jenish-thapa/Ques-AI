@@ -4,7 +4,7 @@
 }
 
 .upload-type {
-  width: 400px;
+  flex: 1;
   display: flex;
   box-shadow: 0px 1.33px 2.67px 0px #0000000f, 0px 5.33px 5.33px 0px #0000000d,
     0px 10.67px 6.67px 0px #00000008, 0px 18.67px 8px 0px #00000003,
@@ -12,7 +12,8 @@
   border: 1px solid #c7c7c7;
   padding: 3.3rem 1.5rem;
   border-radius: 0.5rem;
-  gap: 3rem;
+  gap: 1rem;
+  justify-content: space-between;
   background-color: #ffffff;
   cursor: pointer;
 }

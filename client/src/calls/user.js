@@ -28,7 +28,6 @@ export const RegisterUser = async (value) => {
 export const LogInUser = async (value) => {
   try {
     const response = await axiosInstance.post("/api/users/signin", value);
-    console.log(response.data);
     if (response.data.success) {
       Cookies.set("token", response.data.token, {
         expires: 1,
@@ -45,7 +44,6 @@ export const LogInUser = async (value) => {
 export const GetCurrentUser = async () => {
   try {
     const token = getToken();
-    console.log(token);
 
     if (!token) {
       return;
@@ -56,7 +54,6 @@ export const GetCurrentUser = async () => {
         Authorization: `Bearer ${token}`,
       },
     });
-    console.log(response.data);
 
     return response.data;
   } catch (error) {
