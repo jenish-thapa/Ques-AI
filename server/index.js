@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+const cookieParser = require("cookie-parser");
 require("dotenv").config();
 
 const dbConfig = require("./config/dbConfig");
@@ -16,6 +17,8 @@ app.use(
   })
 );
 app.use(express.json());
+
+app.use(cookieParser());
 
 app.use("/api/users", userRoutes);
 app.use("/api/projects", projectRoutes);
