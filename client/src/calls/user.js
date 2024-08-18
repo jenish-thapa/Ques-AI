@@ -2,8 +2,15 @@ import { axiosInstance } from ".";
 // import { cookieParser } from "cookie-parser";
 
 function getToken() {
-  const token = localStorage.getItem("token");
-  if (token) return token;
+  if (document.cookie) {
+    const cookies = document.cookie.split("; ");
+    for (const cookie of cookies) {
+      const [key, value] = cookie.split("=");
+      if (key === "token") {
+        return value;
+      }
+    }
+  }
   return null;
 }
 
@@ -22,9 +29,6 @@ export const LogInUser = async (value) => {
   try {
     const response = await axiosInstance.post("/api/users/signin", value);
     console.log(response.data);
-    if (response.data.success) {
-      localStorage.setItem("token", response.data.token);
-    }
     return response.data;
   } catch (error) {
     return { success: false, message: "An error occurred" };
