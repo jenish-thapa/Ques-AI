@@ -39,7 +39,7 @@ router.post("/signin", async (req, res) => {
     if (!result.success) {
       return res.send(result);
     }
-    
+
     res.send({
       success: true,
       message: "User logged in successfully!",
