@@ -92,10 +92,10 @@ router.patch("/:id", async (req, res) => {
   }
 });
 
-router.get("/", async (req, res) => {
+router.get("/:id", async (req, res) => {
   try {
     const transcripts = await Transcript.find({
-      projectId: req.query.projectId,
+      projectId: req.params.id,
     });
 
     res.send({

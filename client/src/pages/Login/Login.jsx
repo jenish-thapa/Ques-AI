@@ -84,7 +84,6 @@ const Login = () => {
               required
             />
           </div>
-          <button>Forgot Password?</button>
           <input type="submit" value="LogIn" className="login-button" />
         </form>
         <div className="divider">

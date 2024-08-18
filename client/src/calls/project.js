@@ -13,9 +13,7 @@ export const AddProject = async (value) => {
 // get projects
 export const GetProject = async (value) => {
   try {
-    const response = await axiosInstance.get("/api/projects", {
-      params: { createdBy: value },
-    });
+    const response = await axiosInstance.get(`/api/projects/${value}`);
     return response.data;
   } catch (error) {
     return { success: false, message: "An error occurred" };

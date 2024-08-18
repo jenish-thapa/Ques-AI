@@ -17,9 +17,9 @@ router.post("/", async (req, res) => {
   }
 });
 
-router.get("/", async (req, res) => {
+router.get("/:id", async (req, res) => {
   try {
-    const projects = await Project.find({ createdBy: req.query.createdBy });
+    const projects = await Project.find({ createdBy: req.params.id });
 
     res.send({
       success: true,
