@@ -5,6 +5,7 @@
   justify-content: space-between;
   align-items: center;
   font-family: "Roboto", sans-serif;
+  gap: 1rem;
 }
 
 .path {
@@ -12,6 +13,12 @@
   color: #999999;
   font-weight: 700;
   font-size: 1.6rem;
+}
+
+.bd-icon-grp {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
 .path > p {
@@ -25,7 +32,6 @@
 .bd-icons {
   font-size: 3.3rem;
   padding: 0.8rem;
-  margin-left: 1rem;
   border: 1.5px solid #cccccc;
   border-radius: 50%;
   font-weight: 700;
@@ -37,7 +43,17 @@
 }
 
 .orange::after {
-    content: "Logout";
-    top: 0;
-    left: 0;
+  content: "Logout";
+  top: 0;
+  left: 0;
+}
+
+@media (max-width: 1200px) {
+  .path {
+    font-size: 1.5rem;
+  }
+  .bd-icons {
+    font-size: 2.5rem;
+    padding: 0.6rem;
+  }
 }

@@ -4,6 +4,7 @@
   padding: 4rem 6rem;
   display: flex;
   flex-direction: column;
+  overflow-y: auto;
 }
 
 .podcast-body {
@@ -16,6 +17,8 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 2rem;
 }
 
 .upload-file {
@@ -33,6 +36,11 @@
   background-color: #ffffff;
   font-size: 1.2rem;
   margin: 1rem 0 3rem 0;
+  padding: 2rem 2rem;
+}
+
+.upload-file > p {
+  text-align: center;
 }
 
 .upload-file > img {
@@ -45,10 +53,12 @@
   padding: 0.5rem 1rem;
   border-radius: 2rem;
   font-size: 1.2rem;
-  background-color: #ffffff;
+  background-color: transparent;
+  cursor: pointer;
 }
 
 .grey {
   color: #00000066;
   font-size: 0.9rem;
 }
+

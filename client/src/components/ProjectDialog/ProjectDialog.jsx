@@ -3,6 +3,7 @@ import "./ProjectDialog.css";
 import { AddProject, GetProject } from "../../calls/project";
 import { useDispatch, useSelector } from "react-redux";
 import { setProject } from "../../redux/projectSlice";
+import { hideLoading, showLoading } from "../../redux/loaderSlice";
 
 const ProjectDialog = ({ open, onClose }) => {
   const [title, setTitle] = useState("");
@@ -10,14 +11,22 @@ const ProjectDialog = ({ open, onClose }) => {
   const dispatch = useDispatch();
 
   const addProjects = async () => {
+    dispatch(showLoading());
+
     if (user && user._id) {
       const projects = await GetProject(user._id);
       dispatch(setProject(projects.message));
     }
+
+    setTimeout(() => {
+      dispatch(hideLoading());
+    }, 200);
   };
 
   useEffect(() => {
     if (user) {
+      console.log("mounting");
+
       addProjects();
     }
   }, []);

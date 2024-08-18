@@ -1,5 +1,5 @@
 .project-card {
-  min-width: 420px;
+  min-width: 400px;
   height: 160px;
   border-radius: 1rem;
   border: 1.3px solid #999999;
@@ -14,7 +14,7 @@
 .pc-left {
   height: 100%;
   aspect-ratio: 1/1;
-  background-color: blueviolet;
+  background-color: #f8a01d;
   border-radius: 1rem;
   display: flex;
   justify-content: center;
@@ -51,4 +51,5 @@
 
 .pc-footer {
   color: #969696;
+  font-size: 0.9rem;
 }

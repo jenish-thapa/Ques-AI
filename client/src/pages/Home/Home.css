@@ -40,10 +40,16 @@
 }
 
 .projects {
-  margin-top: 2rem;
+  margin: 2rem 0;
   width: 100%;
   display: flex;
   flex-wrap: wrap;
   gap: 4rem;
   justify-content: space-evenly;
+}
+
+@media (max-width: 777px) {
+  .create-project-title > h2 {
+    font-size: 2.3rem;
+  }
 }

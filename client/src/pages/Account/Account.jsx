@@ -21,7 +21,6 @@ const Account = () => {
 
   return (
     <div className="account">
-      <UploadNav />
       <AccountSettings />
     </div>
   );

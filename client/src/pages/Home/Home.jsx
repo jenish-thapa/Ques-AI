@@ -11,7 +11,7 @@ import { useSelector } from "react-redux";
 const Home = () => {
   const [isDialogOpen, setDialogOpen] = useState(false);
   const { project } = useSelector((state) => state.project);
-  
+
   const handleClick = () => {
     setDialogOpen(true);
   };
@@ -21,45 +21,47 @@ const Home = () => {
   };
 
   return (
-    <div>
-      <Header />
-      {project?.length === 0 ? (
-        <main className="create-project">
-          <h1>Create a New Project</h1>
-          <img src={Podcast} alt="" />
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in
-          </p>
-          <CreateProjectBtn onClick={() => handleClick()} />
-        </main>
-      ) : (
-        <main className="create-project">
-          <div className="create-project-title">
-            <h2>Projects</h2>
+    <>
+      <div>
+        <Header />
+        {project?.length === 0 ? (
+          <main className="create-project">
+            <h1>Create a New Project</h1>
+            <img src={Podcast} alt="" />
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+              reprehenderit in
+            </p>
             <CreateProjectBtn onClick={() => handleClick()} />
-          </div>
-          <div className="projects">
-            {project.map((p, idx) => {
-              return (
-                <ProjectCard
-                  key={idx}
-                  _id={p._id}
-                  name={p.title}
-                  numOfEpisodes={p.noOfEpisodes}
-                  updatedAt={p.updatedAt}
-                />
-              );
-            })}
-          </div>
-        </main>
-      )}
+          </main>
+        ) : (
+          <main className="create-project">
+            <div className="create-project-title">
+              <h2>Projects</h2>
+              <CreateProjectBtn onClick={() => handleClick()} />
+            </div>
+            <div className="projects">
+              {project.map((p, idx) => {
+                return (
+                  <ProjectCard
+                    key={idx}
+                    _id={p._id}
+                    name={p.title}
+                    numOfEpisodes={p.noOfEpisodes}
+                    updatedAt={p.updatedAt}
+                  />
+                );
+              })}
+            </div>
+          </main>
+        )}
 
-      <ProjectDialog open={isDialogOpen} onClose={handleCloseDialog} />
-    </div>
+        <ProjectDialog open={isDialogOpen} onClose={handleCloseDialog} />
+      </div>
+    </>
   );
 };
 

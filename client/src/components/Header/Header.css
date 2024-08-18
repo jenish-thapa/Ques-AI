@@ -1,20 +1,31 @@
 .header {
-    height: 15vh;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 7rem;
-    box-sizing: border-box;
+  height: 15vh;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 7rem;
+  box-sizing: border-box;
 }
 
 .header img {
-    height: 40%;
+  height: 40%;
 }
 
 .header-icons {
-    font-size: 2.5rem;
-    margin-left: 2rem;
-    color: #3C3C3C;
+  font-size: 2.5rem;
+  margin-left: 2rem;
+  color: #3c3c3c;
+  cursor: pointer;
 }
 
+@media (max-width: 777px) {
+  .header img {
+    height: 33%;
+  }
+
+  .header-icons {
+    font-size: 1.8rem;
+    margin-left: 0.7rem;
+  }
+}

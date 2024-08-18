@@ -5,7 +5,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { FaArrowLeft } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
 import { GetTranscript, PatchTranscript } from "../../calls/transcript";
-import { current } from "@reduxjs/toolkit";
 import { setTranscript } from "../../redux/transcriptSlice";
 import { setCurrentTranscript } from "../../redux/currentTranscriptSlice";
 

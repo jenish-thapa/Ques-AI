@@ -52,7 +52,7 @@ const Login = () => {
       <div className="welcome-message">
         <img src={quessAILogo1} alt="QuessAI Logo" className="welcome-logo" />
         <h1>
-          Your podcast <br /> will no longer <br /> be just a hobby
+          Your podcast <br /> will no longer <br /> be just a hobby.
         </h1>
         <p>
           Supercharge Your Distribution <br /> using our AI assistant!
@@ -84,6 +84,7 @@ const Login = () => {
               required
             />
           </div>
+          <button>Forgot Password?</button>
           <input type="submit" value="LogIn" className="login-button" />
         </form>
         <div className="divider">

@@ -34,21 +34,23 @@ const TranscriptTable = ({ transcripts }) => {
     })();
   };
 
-  const dateFormatter = (timestamp) => {
+  function dateFormatter(timestamp) {
     const date = new Date(timestamp);
     const options = {
       day: "2-digit",
       month: "short",
       year: "2-digit",
+    };
+    const timeOptions = {
       hour: "2-digit",
       minute: "2-digit",
     };
-    return (
-      date.toLocaleDateString("en-GB", options).replace(/,/, "") +
-      " | " +
-      date.toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit" })
-    );
-  };
+
+    const formattedDate = date.toLocaleDateString("en-GB", options);
+    const formattedTime = date.toLocaleTimeString("en-GB", timeOptions);
+
+    return `${formattedDate} | ${formattedTime}`;
+  }
 
   return (
     <div className="transcript-table-cont">
@@ -74,7 +76,7 @@ const TranscriptTable = ({ transcripts }) => {
                   <button className="td-done">Done</button>
                 </td>
                 <td>
-                  <div>
+                  <div className="td-action">
                     <button
                       className="td-view"
                       onClick={() => toTranscript(transcript)}

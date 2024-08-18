@@ -1,63 +1,3 @@
-.welcome-screen {
-  display: flex;
-  font-family: "Poppins", sans-serif;
-}
-
-.welcome-message {
-  flex: 1;
-  background: url("../../assets/welcomeScreen.png"),
-    linear-gradient(225deg, #c37eff, #3a0b63);
-  background-size: 100% auto;
-  background-position: bottom;
-  background-repeat: no-repeat;
-  color: #ffffff;
-  font-weight: 300;
-  box-sizing: border-box;
-  padding: 4.5rem 6rem;
-}
-
-.welcome-logo {
-  height: 4rem;
-}
-
-.welcome-message > h1 {
-  font-size: 5rem;
-  font-weight: 300;
-  line-height: 98.63px;
-}
-
-.welcome-message > p {
-  font-size: 30.9px;
-  line-height: 40.17px;
-}
-
-.login {
-  width: 520px;
-  height: 100vh;
-  box-sizing: border-box;
-}
-
-.login {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 5rem 0;
-  font-family: "Roboto", sans-serif;
-}
-
-.login > img {
-  height: 5.5rem;
-}
-
-.login > p {
-  color: #7e22ce;
-  font-size: 3rem;
-  text-align: center;
-  line-height: 3.5rem;
-  margin: 2rem 0 1rem 0;
-}
-
 .bold {
   font-weight: 600;
 }
@@ -107,9 +47,9 @@ form {
 #login-p {
   width: 70%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   color: #313131;
-  font-size: 1rem;
+  font-size: 0.9rem;
   margin: 0;
 }
 
@@ -121,3 +61,4 @@ form {
   font-size: 1rem;
   cursor: pointer;
 }
+

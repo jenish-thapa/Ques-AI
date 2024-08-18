@@ -16,6 +16,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { GetTranscript } from "../../calls/transcript";
 import { setTranscript } from "../../redux/transcriptSlice";
 import { BreadCrumb } from "../BreadCrumb";
+import { hideLoading, showLoading } from "../../redux/loaderSlice";
 
 const AddPodcast = () => {
   const navigator = useNavigate();
@@ -29,10 +30,16 @@ const AddPodcast = () => {
   const [dialogTitle, setDialogTitle] = useState(null);
 
   const loadTranscript = async () => {
+    dispatch(showLoading());
+
     if (currentProject) {
       const transcripts = await GetTranscript(currentProject._id);
       dispatch(setTranscript(transcripts.message));
     }
+
+    setTimeout(() => {
+      dispatch(hideLoading());
+    }, 200);
   };
 
   useEffect(() => {
@@ -94,7 +101,13 @@ const AddPodcast = () => {
               Transcription Text)
             </p>
             <p className="grey">MP4, MOV, MP3, WAV, PDF, DOCX or TXT file</p>
-            <button className="select-btn">Select File</button>
+            <button
+              className="select-btn"
+              type="file"
+              onClick={() => handleClick(UploadIcon, "Upload from Files")}
+            >
+              Select File
+            </button>
           </div>
         ) : (
           <TranscriptTable transcripts={transcript} />

@@ -30,6 +30,7 @@
   width: 100%;
   height: 30vh;
   overflow-y: auto;
+  overflow-x: hidden
 }
 
 .transcript-table tr {
@@ -105,17 +106,23 @@ td > div {
   align-items: center;
 }
 
-.t-body {
-  width: 100%;
-  height: 30vh;
-  overflow-y: auto;
-  overflow-x: hidden;
-}
-
-.transcript-table-row{
+.transcript-table-row {
   border-radius: 0.5rem;
 }
 
 .transcript-table-row:hover {
-  background-color: #F8F3FF;
+  background-color: #f8f3ff;
+}
+
+@media (max-width: 992px) {
+  .td-action {
+    flex-direction: column;
+    gap: 5px;
+  }
+  .td-view,
+  .td-delete {
+    border: 1.5px solid #c7c7c7;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+  }
 }

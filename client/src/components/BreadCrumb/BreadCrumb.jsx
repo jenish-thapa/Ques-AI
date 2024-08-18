@@ -22,12 +22,11 @@ const BreadCrumb = ({ normal, nav }) => {
       <div className="path">
         <GrHomeRounded />
         <p>
-          Home Page / {currentProject.name} /{" "}
-          {normal ? `${normal} / ` : ""}
+          Home Page / {currentProject.name} / {normal ? `${normal} / ` : ""}
           <span className="purple">{nav}</span>
         </p>
       </div>
-      <div>
+      <div className="bd-icon-grp">
         <GoBell className="bd-icons" />
         <RxExit className="bd-icons orange" onClick={handleLogout} />
       </div>

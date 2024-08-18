@@ -4,22 +4,24 @@ import "./AccountSettings.css";
 import { FaArrowLeft } from "react-icons/fa6";
 
 import ProfilePic from "../../assets/profile.png";
-import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { BreadCrumb } from "../BreadCrumb";
+import { useNavigate } from "react-router-dom";
 
-const AccountSettings = () => {
+const AccountSettings = ({ setActiveLink, isPage }) => {
   const navigator = useNavigate();
+
   const { user } = useSelector((state) => state.user);
-  const [email, setEmail] = useState(user.email);
   const [usrname, setUsrname] = useState(user.usrname);
 
   const back = () => {
-    navigator("/upload");
+    if (isPage) navigator("/home");
+    else setActiveLink("addPodcast");
   };
+
   return (
     <div className="add-podcast">
-      <BreadCrumb nav={"Account Settings"} />
+      {!isPage ? <BreadCrumb nav={"Account Settings"} /> : null}
       <div className="podcast-body">
         <h1 className="acc-h1">
           <FaArrowLeft className="back" onClick={back} />
@@ -40,15 +42,11 @@ const AccountSettings = () => {
             </div>
             <div className="acc-form">
               <label>Email</label>
-              <input
-                type="email"
-                id="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-              />
+              <input type="email" id="email" value={user.email} readOnly />
             </div>
-            <button className="save-btn save" onClick={() => {}}>Save</button>
+            {/* <button className="save-btn save" onClick={() => {}}>
+              Save
+            </button> */}
           </div>
           <h2>Subscriptions</h2>
           <div className="upgrade purple">

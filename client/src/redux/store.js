@@ -4,6 +4,7 @@ import projectReducer from "./projectSlice";
 import currentProjectReducer from "./currentProjectSlice";
 import transcriptReducer from "./transcriptSlice";
 import currentTranscriptReducer from "./currentTranscriptSlice";
+import loaderReducer from "./loaderSlice";
 
 const store = configureStore({
   reducer: {
@@ -12,6 +13,7 @@ const store = configureStore({
     currentProject: currentProjectReducer,
     transcript: transcriptReducer,
     currentTranscript: currentTranscriptReducer,
+    loader: loaderReducer,
   },
 });
 

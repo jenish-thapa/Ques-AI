@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { CreateRepurpose } from "../../components/CreateRepurpose";
 import { PodcastWidget } from "../../components/PodcastWidget";
 import { Upgrade } from "../../components/Upgrade";
+import { AccountSettings } from "../../components/AccountSettings";
 
 const Upload = () => {
   const navigator = useNavigate();
@@ -33,6 +34,8 @@ const Upload = () => {
         return <PodcastWidget />;
       case "upgrade":
         return <Upgrade />;
+      case "settings":
+        return <AccountSettings setActiveLink={setActiveLink} isPage={false} />;
       default:
         return null;
     }

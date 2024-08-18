@@ -1,21 +1,30 @@
 .create-new-project-btn {
-    background-color: #211935;
-    color: #ffffff;
-    height: 3rem;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    font-size: 1.25rem;
-    font-weight: 600;
-    padding: 1.8rem 1.2rem;
-    border-radius: 0.5rem;
-    cursor: pointer;
+  background-color: #211935;
+  color: #ffffff;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  padding: 1.8rem 1.2rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
 }
 
 #plus {
-    background-color: #ffffff;
-    color: #211935;
-    font-size: 1.5rem;
-    border-radius: 50%;
-    padding: 0.3rem;
+  background-color: #ffffff;
+  color: #211935;
+  font-size: 1.5rem;
+  border-radius: 50%;
+  padding: 0.3rem;
+}
+
+@media (max-width: 777px) {
+  .create-new-project-btn {
+    font-size: 1rem;
+    gap: 0.5rem;
+    padding: 1rem 0.5rem;
+    font-weight: 600;
+  }
 }
