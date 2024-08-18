@@ -1,19 +1,10 @@
 import { axiosInstance } from ".";
-// import { cookieParser } from "cookie-parser";
+import Cookies from "js-cookie";
 
 function getToken() {
-  console.log(document);
-  
-  if (document.cookie) {
-    const cookies = document.cookie.split("; ");
-    for (const cookie of cookies) {
-      const [key, value] = cookie.split("=");
-      if (key === "token") {
-        return value;
-      }
-    }
-  }
-  return null;
+  const token = Cookies.get("token");
+  if (token) return token;
+  else return null;
 }
 
 // signup
@@ -30,8 +21,14 @@ export const RegisterUser = async (value) => {
 export const LogInUser = async (value) => {
   try {
     const response = await axiosInstance.post("/api/users/signin", value);
-    console.log(response.data);
-    
+    if (response.data.success) {
+      Cookies.set("token", response.data.token, {
+        expires: 1,
+        path: "/",
+        sameSite: "None",
+        secure: true,
+      });
+    }
     return response.data;
   } catch (error) {
     return { success: false, message: "An error occurred" };
@@ -47,14 +44,14 @@ export const GetCurrentUser = async () => {
     if (!token) {
       return;
     }
-    
+
     const response = await axiosInstance.get("api/users/get-current-user", {
       headers: {
         Authorization: `Bearer ${token}`,
       },
     });
     console.log(response.data);
-    
+
     return response.data;
   } catch (error) {
     console.log(error);
