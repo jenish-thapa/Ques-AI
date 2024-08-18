@@ -14,12 +14,13 @@ import { useSelector } from "react-redux";
 
 function App() {
   const { loading } = useSelector((state) => state.loader);
-  
+
   return (
     <>
       {loading && <Loader />}
       <BrowserRouter>
         <Routes>
+          <Route path="/" element={<Login />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
 
