@@ -1,5 +1,5 @@
 import { axiosInstance } from ".";
-// import { cookieParser } from "cookie-parser";
+import Cookies from "js-cookie";
 
 function getToken() {
   if (document.cookie) {
@@ -29,6 +29,12 @@ export const LogInUser = async (value) => {
   try {
     const response = await axiosInstance.post("/api/users/signin", value);
     console.log(response.data);
+    if (response.data.success) {
+      Cookies.set("token", response.data.token, {
+        expires: 1,
+      });
+    }
+
     return response.data;
   } catch (error) {
     return { success: false, message: "An error occurred" };
