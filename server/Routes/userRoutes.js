@@ -40,11 +40,14 @@ router.post("/signin", async (req, res) => {
       return res.send(result);
     }
 
-    res.send({
-      success: true,
-      message: "User logged in successfully!",
-      token: result.message,
-    });
+    const oneDayInSeconds = 24 * 60 * 60;
+
+    res.cookie("token", result.message, {
+      sameSite: "None",
+      maxAge: oneDayInSeconds,
+      httpOnly: false,
+      secure: true,
+    }).send({ success: true, message: "User logged in successfully!" });
   } catch (error) {
     console.error("Error in login route:", error);
     res.send({ success: false, message: "Server error" });

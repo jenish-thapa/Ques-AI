@@ -1,10 +1,20 @@
 import { axiosInstance } from ".";
-import Cookies from "js-cookie";
+// import { cookieParser } from "cookie-parser";
 
 function getToken() {
-  const token = Cookies.get("token");
-  if (token) return token;
-  else return null;
+  console.log(document);
+  console.log(localStorage.getItem("token"));
+
+  if (document.cookie) {
+    const cookies = document.cookie.split("; ");
+    for (const cookie of cookies) {
+      const [key, value] = cookie.split("=");
+      if (key === "token") {
+        return value;
+      }
+    }
+  }
+  return null;
 }
 
 // signup
@@ -21,14 +31,8 @@ export const RegisterUser = async (value) => {
 export const LogInUser = async (value) => {
   try {
     const response = await axiosInstance.post("/api/users/signin", value);
-    if (response.data.success) {
-      Cookies.set("token", response.data.token, {
-        expires: 1,
-        path: "/",
-        sameSite: "None",
-        secure: true,
-      });
-    }
+    console.log(response.data);
+
     return response.data;
   } catch (error) {
     return { success: false, message: "An error occurred" };
