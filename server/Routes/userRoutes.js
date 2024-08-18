@@ -40,10 +40,13 @@ router.post("/signin", async (req, res) => {
       return res.send(result);
     }
 
-    res.cookie("token", result.message, {
-      sameSite: "None",
+    const oneDayInSeconds = 24 * 60 * 60;
+
+    res.cookie("token", token, {
+      httpOnly: false,
       secure: true,
-      httpOnly: true,
+      sameSite: "None",
+      maxAge: oneDayInSeconds,
     });
 
     res.send({ success: true, message: "User logged in successfully!" });

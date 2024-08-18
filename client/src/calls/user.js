@@ -2,6 +2,8 @@ import { axiosInstance } from ".";
 // import { cookieParser } from "cookie-parser";
 
 function getToken() {
+  console.log(document.cookie);
+
   if (document.cookie) {
     const cookies = document.cookie.split("; ");
     for (const cookie of cookies) {
@@ -28,6 +30,8 @@ export const RegisterUser = async (value) => {
 export const LogInUser = async (value) => {
   try {
     const response = await axiosInstance.post("/api/users/signin", value);
+    console.log(response.data);
+
     return response.data;
   } catch (error) {
     return { success: false, message: "An error occurred" };
@@ -38,6 +42,8 @@ export const LogInUser = async (value) => {
 export const GetCurrentUser = async () => {
   try {
     const token = getToken();
+    console.log(token);
+
     if (!token) {
       return;
     }
@@ -46,6 +52,8 @@ export const GetCurrentUser = async () => {
         Authorization: `Bearer ${token}`,
       },
     });
+    console.log(response.data);
+
     return response.data;
   } catch (error) {
     console.log(error);
